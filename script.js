@@ -1,24 +1,11 @@
 function threeSum(arr, target) {
 // write your code here
-const result = [];
-  arr.sort((a, b) => a - b);
-  for (let i = 0; i < arr.length - 2; i++) {
-    let left = i + 1;
-    let right = arr.length - 1;
-    while (left < right) {
-      const sum = arr[i] + arr[left] + arr[right];
-      if (sum === target) {
-        result.push([arr[i], arr[left], arr[right]]);
-        left++;
-        right--;
-      } else if (sum < target) {
-        left++;
-      } else {
-        right--;
-      }
-    }
+let binary = ''; // initialize an empty string to store the binary digits
+  while (decimal > 0) {
+    binary = (decimal % 2) + binary; // add the least significant binary digit to the string
+    decimal = Math.floor(decimal / 2); // divide by 2 to shift the digits to the right
   }
-  return result;  
+  return binary || '0'; 
 }
 
 module.exports = threeSum;
