@@ -14,5 +14,6 @@ function decimalToBinary(decimal) {
     decimal = Math.floor(decimal / 2);
   }
 
-  return binary;
+  console.log(binary);
 }
+
