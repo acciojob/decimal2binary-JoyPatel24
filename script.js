@@ -1,45 +1,18 @@
-function threeSum(arr, target) {
-  const result = [];
-
-  // Sort the array in ascending order
-  arr.sort((a, b) => a - b);
-
-  const length = arr.length;
-
-  for (let i = 0; i < length - 2; i++) {
-    // Skip duplicates
-    if (i > 0 && arr[i] === arr[i - 1]) {
-      continue;
-    }
-
-    let left = i + 1;
-    let right = length - 1;
-
-    while (left < right) {
-      const sum = arr[i] + arr[left] + arr[right];
-
-      if (sum === target) {
-        result.push([arr[i], arr[left], arr[right]]);
-
-        // Skip duplicates
-        while (left < right && arr[left] === arr[left + 1]) {
-          left++;
-        }
-        while (left < right && arr[right] === arr[right - 1]) {
-          right--;
-        }
-
-        left++;
-        right--;
-      } else if (sum < target) {
-        left++;
-      } else {
-        right--;
-      }
-    }
+function decimalToBinary(decimal) {
+  // Handle special case for 0
+  if (decimal === 0) {
+    return '0';
   }
 
-  return result;
-}
+  let binary = '';
+  while (decimal > 0) {
+    // Get the remainder when dividing by 2
+    const remainder = decimal % 2;
+    // Add the remainder to the binary string
+    binary = remainder + binary;
+    // Divide the decimal by 2
+    decimal = Math.floor(decimal / 2);
+  }
 
-module.exports = threeSum;
+  return binary;
+}
